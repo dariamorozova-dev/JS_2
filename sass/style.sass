@@ -4,6 +4,7 @@ $semiBrown: #a07945
 $lightBrown: #c2a97d
 $transparentBrown: #d1ccc4
 $transparentGrey: #d5dadd
+$body: #D0B48F
 
 body
     margin: 0 auto
@@ -41,7 +42,7 @@ header
     display: grid
     grid-template-columns: repeat(4, 1fr)
     grid-gap: 15px 15px
-    background-color: $transparentBrown
+    background-color: $body
 
 .product-item
     padding: 10px
@@ -53,10 +54,7 @@ header
     &:hover
         background-color: $lightBrown
         transform: scale(1.1)
-
-    // &:hover > .product-item__img:hover
-    //     transform: scale(1.2)
-
+        
     &:hover > .buy-btn
         background-color: $transparentBrown
 

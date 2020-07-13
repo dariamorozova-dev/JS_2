@@ -43,7 +43,7 @@ header {
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px 15px;
-  background-color: #d1ccc4;
+  background-color: #D0B48F;
 }
 
 .product-item {
