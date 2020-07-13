@@ -1,0 +1,103 @@
+$brown: #433512
+$darkBrown: #7c4a24
+$semiBrown: #a07945
+$lightBrown: #c2a97d
+$transparentBrown: #d1ccc4
+$transparentGrey: #d5dadd
+
+body
+    margin: 0 auto
+    width: 1000px
+    font-family: 'Play', sans-serif
+
+header
+    padding: 15px 25px
+    box-sizing: border-box
+    width: 100%
+    min-height: 70px
+    background-color: $lightBrown
+    text-align: right
+    
+.btn-cart
+    width: 120px
+    height: 35px
+    font-size: 1.2em
+    border: none
+    outline: none
+    background-color: $semiBrown
+    color: $brown
+
+    &:hover
+        background-color: $brown
+        color: $transparentBrown
+        transform: scale(1.1)
+
+    &:active
+        background-color: $darkBrown
+        color: $transparentGrey
+    
+.products
+    padding: 25px
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-gap: 15px 15px
+    background-color: $transparentBrown
+
+.product-item
+    padding: 10px
+    box-sizing: border-box
+    width: 100%
+    height: 100%
+    background-color: $semiBrown
+
+    &:hover
+        background-color: $lightBrown
+        transform: scale(1.1)
+
+    // &:hover > .product-item__img:hover
+    //     transform: scale(1.2)
+
+    &:hover > .buy-btn
+        background-color: $transparentBrown
+
+    &:hover > .buy-btn:hover
+        transform: scale(1.1)
+        background-color: $semiBrown
+        color: $transparentGrey
+
+    &:hover > .buy-btn:active
+        background-color: $lightBrown
+        color: $semiBrown
+
+    &:active
+        background-color: $transparentBrown
+
+    &:active > .product-item__title, 
+    &:active > .product-item__price
+        color: $lightBrown   
+
+    &__title
+        margin: 0 0 10px 0
+        padding: 0
+        font-size: 1.5em
+        color: $brown
+        font-weight: 600
+
+    &__price
+        margin: 10px 0
+        padding: 0
+        font-size: 1em
+        color: $brown
+
+    &__img
+        width: 100%
+
+.buy-btn
+    width: 100px
+    height: 30px
+    font-size: 1em
+    font-weight: 600
+    border: none
+    outline: none
+    background-color: $lightBrown
+    color: $brown
