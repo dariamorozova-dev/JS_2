@@ -1,0 +1,51 @@
+body
+    margin: 0 auto
+    width: 85%
+    font-family: 'Ubuntu', sans-serif
+
+.content-wrp
+    display: flex
+    justify-content: space-between
+
+.content
+    width: 60%
+    display: flex
+    align-items: center
+    justify-content: space-around
+
+.hamburger,
+.stuff,
+.rezult
+    display: inline-block
+    width: 49.5%
+    padding: 10px
+    box-sizing: border-box
+    text-align: center
+    background-color: #ebebeb
+    
+    &__title
+        text-transform: uppercase
+        font-weight: 700
+        font-size: 1.5em
+
+.rezult
+    width: 39%
+    visibility: hidden
+
+.stuff
+    min-width: 25%
+    max-width: 33%
+    
+    &__title
+        font-size: .9em
+
+.hamburger:hover,
+.stuff:hover
+    cursor: pointer
+    background-color: #a0a0a0
+
+.price,
+.calories
+    text-transform: uppercase
+    font-weight: 700
+    font-size: 1em
