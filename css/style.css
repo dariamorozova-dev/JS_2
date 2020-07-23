@@ -97,19 +97,25 @@ header {
 
 .cart-item-name {
   display: inline-block;
-  width: 42%;
+  width: 37%;
   font-weight: 600;
 }
 
 .cart-item-price {
   display: inline-block;
-  width: 20%;
+  width: 15%;
   text-align: center;
 }
 
 .cart-item-quantity {
   display: inline-block;
-  width: 20%;
+  width: 15%;
+  text-align: center;
+}
+
+.cart-item-summ {
+  display: inline-block;
+  width: 15%;
   text-align: center;
 }
 
