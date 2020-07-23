@@ -3,21 +3,20 @@ class ProductList {
         this.container = container;
         this.goods = [];
         this.allProducts = [];
-        this._fetchProducts();
-        this.render();//вывод товаров на страницу
+        this.APIItems = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
+        this._getProducts()
+            .then(data => {
+                this.goods = [...data];
+                this.render()
+            });
     }
 
-    /**
-     * метод добавляет товары в массив
-     * @returns {Array} массив this.goods с объектами товаров
-     */
-    _fetchProducts() {
-        this.goods = [
-            { id: 1, title: 'Notebook', price: 2000 },
-            { id: 2, title: 'Mouse', price: 20 },
-            { id: 3, title: 'Keyboard', price: 200 },
-            { id: 4, title: 'Gamepad', price: 50 },
-        ];
+    _getProducts() {
+        return fetch(`${this.APIItems}/catalogData.json`)
+            .then(result => result.json())
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     /**

@@ -1,2 +1,7 @@
-let list = new ProductList();
-console.log(list.calcSumOfAllProducts());
+
+
+window.addEventListener('load', () => {
+    const list = new ProductList();
+    const cart = new Cart();
+    console.log(list.calcSumOfAllProducts());
+})

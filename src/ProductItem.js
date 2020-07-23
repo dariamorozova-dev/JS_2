@@ -1,9 +1,9 @@
 class ProductItem {
     constructor(product) {
-        this.title = product.title;
-        this.id = product.id;
+        this.title = product.product_name;
+        this.id = product.product_id;
         this.price = product.price;
-        this.img = `../img/${this.id}.jpg`;
+        this.img = 'https://placehold.it/200x150';
     }
 
     /**
