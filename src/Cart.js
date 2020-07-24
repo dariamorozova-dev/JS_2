@@ -131,6 +131,12 @@ class Cart {
         this.blockClicks()
         const cartToBuy = JSON.stringify(this.dataList);
         console.log(cartToBuy);
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost/', true);
+        xhr.setRequestHeader('Content-type', 'application/json');
+        xhr.send(cartToBuy);
+        
         this.clearCart()
     }
 
