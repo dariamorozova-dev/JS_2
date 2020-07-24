@@ -6,6 +6,10 @@ class ProductItem {
         this.img = 'https://placehold.it/200x150';
     }
 
+    init(cart) {
+        this.cart = cart;
+    }
+
     /**
      * Метод "оборачивает" свойства объекта товара в верстку
      * @param {Object} Объект товара
@@ -22,42 +26,30 @@ class ProductItem {
 
     addEventListenerAtBtn(item) {
         const itemBtn = item.querySelector('.buy-btn');
-        itemBtn.addEventListener('click', () => {
-            this.addToCart();
-        });
+        itemBtn.addEventListener('click', this.cart.addItem.bind(this.cart));
     }
 
-    addToCart() {
-        const cartItems = document.querySelectorAll('.cart-item');
-        cartItems.forEach(element => {
-            if (this.id == element.dataset.id) {
-                let quantEl = element.querySelector('.cart-item-quantity');
-                let quant = +quantEl.innerHTML;
-                quant++;
-                const priceEl = element.querySelector('.cart-item-price');
-                let price = +priceEl.innerHTML;
-                const summEl = element.querySelector('.cart-item-summ');
-                let summ = price*quant;
-                summEl.innerText = summ;
-                quantEl.innerText = quant;
+    // addToCart() {
+    //     const cartItems = document.querySelectorAll('.cart-item');
+    //     cartItems.forEach(element => {
+    //         if (this.id == element.dataset.id) {
+    //             let quantEl = element.querySelector('.cart-item-quantity');
+    //             let quant = +quantEl.innerHTML;
+    //             quant++;
+    //             const priceEl = element.querySelector('.cart-item-price');
+    //             let price = +priceEl.innerHTML;
+    //             const summEl = element.querySelector('.cart-item-summ');
+    //             let summ = price*quant;
+    //             summEl.innerText = summ;
+    //             quantEl.innerText = quant;
 
-                if (quant > 0) {
-                    element.style.display = ('block');
-                }
-            }
-        });
-        this.renderRezult();
-    }
+    //             if (quant > 0) {
+    //                 element.style.display = ('block');
+    //             }
+    //         }
+    //     });
+    //     this.cart.renderRezult();
+    // }
 
-    renderRezult() {
-        const rezultEl = document.querySelector('.cart-rezult');
-        const cart = document.querySelector('.cart');
-        const allSumm = [...cart.querySelectorAll('.cart-item-summ')];
-        let rezult = 0;
-        allSumm.forEach(el => {
-            rezult += +el.innerHTML;
-        });
-        rezultEl.innerText = `Стоимость заказа: ${rezult}`;
-    }
 
 }

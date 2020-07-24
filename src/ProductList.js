@@ -3,12 +3,17 @@ class ProductList {
         this.container = container;
         this.goods = [];
         this.allProducts = [];
+
         this.APIItems = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
         this._getProducts()
             .then(data => {
                 this.goods = [...data];
                 this.render()
             });
+    }
+
+    init(cart) {
+        this.cart = cart;
     }
 
     _getProducts() {
@@ -27,14 +32,14 @@ class ProductList {
         const block = document.querySelector(this.container);
         for (let product of this.goods) {
             const item = new ProductItem(product);
-            // item.render();
+            item.init(this.cart);
             this.allProducts.push(item);
             block.insertAdjacentHTML("beforeend", item.render());
             const itemNode = document.querySelector(`.product-item[data-id="${item.id}"]`);
             item.addEventListenerAtBtn(itemNode);
         }
-        
-        
+
+
     }
 
     /**

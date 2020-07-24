@@ -1,12 +1,11 @@
 class Cart {
     constructor() {
-        // this.cartBtn = document.querySelector('.btn-cart');
         this.cartWrp = document.querySelector('.cart-wrp');
         this.cart = document.querySelector('.cart');
         this.rezult = document.querySelector('.cart-rezult');
         this.APICart = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
         this.dataList = {};
-       
+
         this.getProductsInCart()
             .then(data => {
                 this.dataList = data;
@@ -24,7 +23,7 @@ class Cart {
     }
 
     render() {
-        for (let i = 0; i < this.dataList.contents.length; i++) {       
+        for (let i = 0; i < this.dataList.contents.length; i++) {
             let item = new CartItem(this.dataList.contents[i]).renderCartItem();
             this.cart.insertAdjacentHTML('afterbegin', item);
         }
@@ -51,8 +50,8 @@ class Cart {
 
         const cartBtnDelItem = document.querySelectorAll('.btn-cart-block-delItem');
         cartBtnDelItem.forEach(element => {
-        element.addEventListener('click', this.deleteItem.bind(this));
-        });        
+            element.addEventListener('click', this.deleteItem.bind(this));
+        });
     }
 
     showCartBlock() {
@@ -63,75 +62,89 @@ class Cart {
         this.cartWrp.style.visibility = ('hidden');
     }
 
-    /**
-     * добавляет новый товар в корзину или увеличивает количество уже имеющегося в
-     * корзине товара на 1 
-     * если товара еще нет -  отослать к методу renderCartItem()
-     * если товар есть - увеличить на 1
-     */
     addItem(event) {
-        const itemNode = event.currentTarget.parentNode;
+        const itemNode = this.checkClickElement(event);
         const quantEl = itemNode.querySelector('.cart-item-quantity');
-        const priceEl = itemNode.querySelector('.cart-item-price');
         const summEl = itemNode.querySelector('.cart-item-summ');
-        let quant = +quantEl.innerText + 1;
-        quantEl.innerText = quant;
-        let price = +priceEl.innerText;
-        summEl.innerText = quant*price;
+
+        for (let i = 0; i < this.dataList.contents.length; i++) {
+            if (this.dataList.contents[i].id_product == itemNode.dataset.id) {
+                
+                if (this.dataList.contents[i].quantity == 0) {
+                    itemNode.style.display = ('block');
+                }
+
+                this.dataList.contents[i].quantity++;
+                this.dataList.amount += this.dataList.contents[i].price;
+                this.dataList.countGoods++;
+                quantEl.innerHTML = this.dataList.contents[i].quantity;
+                summEl.innerHTML = this.dataList.contents[i].quantity * this.dataList.contents[i].price;
+            }
+        };
         this.renderRezult();
     }
 
-    /**
-     * Уменьшает кол-во товаров в корзине на 1
-     */
-    deleteItem() {
+    checkClickElement(event) {
+        const clickID = +event.currentTarget.parentNode.dataset.id;
+        const cartElements = [...this.cart.querySelectorAll('.cart-item')];
+        let element = null;
+        cartElements.forEach(el => {
+            if (el.dataset.id == clickID) {
+                element = el;
+            }
+        })
+        return element;
+    }
+
+    deleteItem(event) {
         const itemNode = event.currentTarget.parentNode;
         const quantEl = itemNode.querySelector('.cart-item-quantity');
         const priceEl = itemNode.querySelector('.cart-item-price');
         const summEl = itemNode.querySelector('.cart-item-summ');
-        let quant = +quantEl.innerText;
-        if (quant >= 1) {
-            quant--;
-            quantEl.innerText = quant;
-            let price = +priceEl.innerText;
-            summEl.innerText = quant*price;
-        }
-        
-        if (quant == 0) {
-            itemNode.style.display = ('none');
-        }
+        for (let i = 0; i < this.dataList.contents.length; i++) {
+            if (this.dataList.contents[i].id_product == itemNode.dataset.id) {
+
+                if (this.dataList.contents[i].quantity >= 1) {
+                    this.dataList.contents[i].quantity--;
+                    this.dataList.amount -= this.dataList.contents[i].price;
+                    this.dataList.countGoods--;
+                    quantEl.innerText = this.dataList.contents[i].quantity;
+                    summEl.innerText = this.dataList.contents[i].quantity * this.dataList.contents[i].price;
+                }
+
+                if (this.dataList.contents[i].quantity == 0) {
+                    itemNode.style.display = ('none');
+                }
+            }
+        };
         this.renderRezult();
     }
 
     renderRezult() {
-        const allSumm = [...this.cart.querySelectorAll('.cart-item-summ')];
-        let rezult = 0;
-        allSumm.forEach(el => {
-            rezult += +el.innerHTML;
-        });
-        this.rezult.innerText = `Стоимость заказа: ${rezult}`;
+        this.rezult.innerText = `Стоимость заказа: ${this.dataList.amount}`;
     }
 
     /**
      * метод отправляет список товаров из корзины на сервер
      */
     buyAll() {
-        blockClicks()
-
-        clearCart()
+        this.blockClicks()
+        const cartToBuy = JSON.stringify(this.dataList);
+        console.log(cartToBuy);
+        this.clearCart()
     }
 
     /**
      * метод блокирует клики по странице во время отправки формы на сервер
      */
     blockClicks() {
-
+        console.log('clicks are blocked');
     }
 
     /**
      * метод очищает корзину после отправки списка товаров на сервер
      */
     clearCart() {
-
+        console.log('cart is clear now!')
     }
 }
