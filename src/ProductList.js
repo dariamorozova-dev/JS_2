@@ -26,10 +26,15 @@ class ProductList {
     render() {
         const block = document.querySelector(this.container);
         for (let product of this.goods) {
-            const item = new ProductItem(product).render();
+            const item = new ProductItem(product);
+            // item.render();
             this.allProducts.push(item);
-            block.insertAdjacentHTML("beforeend", item);
+            block.insertAdjacentHTML("beforeend", item.render());
+            const itemNode = document.querySelector(`.product-item[data-id="${item.id}"]`);
+            item.addEventListenerAtBtn(itemNode);
         }
+        
+        
     }
 
     /**

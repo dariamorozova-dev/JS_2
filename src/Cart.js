@@ -3,6 +3,7 @@ class Cart {
         // this.cartBtn = document.querySelector('.btn-cart');
         this.cartWrp = document.querySelector('.cart-wrp');
         this.cart = document.querySelector('.cart');
+        this.rezult = document.querySelector('.cart-rezult');
         this.APICart = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
         this.dataList = {};
        
@@ -27,6 +28,7 @@ class Cart {
             let item = new CartItem(this.dataList.contents[i]).renderCartItem();
             this.cart.insertAdjacentHTML('afterbegin', item);
         }
+        this.renderRezult();
     }
 
     /**
@@ -44,12 +46,12 @@ class Cart {
 
         const cartBtnAddItem = document.querySelectorAll('.btn-cart-block-addItem');
         cartBtnAddItem.forEach(element => {
-            element.addEventListener('click', this.addItem);
+            element.addEventListener('click', this.addItem.bind(this));
         });
 
         const cartBtnDelItem = document.querySelectorAll('.btn-cart-block-delItem');
         cartBtnDelItem.forEach(element => {
-        element.addEventListener('click', this.deleteItem);
+        element.addEventListener('click', this.deleteItem.bind(this));
         });        
     }
 
@@ -76,6 +78,7 @@ class Cart {
         quantEl.innerText = quant;
         let price = +priceEl.innerText;
         summEl.innerText = quant*price;
+        this.renderRezult();
     }
 
     /**
@@ -95,9 +98,18 @@ class Cart {
         }
         
         if (quant == 0) {
-            itemNode.style.visibility = ('hidden');
-            itemNode.style.height = ('0');
+            itemNode.style.display = ('none');
         }
+        this.renderRezult();
+    }
+
+    renderRezult() {
+        const allSumm = [...this.cart.querySelectorAll('.cart-item-summ')];
+        let rezult = 0;
+        allSumm.forEach(el => {
+            rezult += +el.innerHTML;
+        });
+        this.rezult.innerText = `Стоимость заказа: ${rezult}`;
     }
 
     /**

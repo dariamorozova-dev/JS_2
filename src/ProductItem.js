@@ -19,4 +19,45 @@ class ProductItem {
                 <button class="buy-btn">Купить</button>
             </div>`
     }
+
+    addEventListenerAtBtn(item) {
+        const itemBtn = item.querySelector('.buy-btn');
+        itemBtn.addEventListener('click', () => {
+            this.addToCart();
+        });
+    }
+
+    addToCart() {
+        const cartItems = document.querySelectorAll('.cart-item');
+        cartItems.forEach(element => {
+            if (this.id == element.dataset.id) {
+                let quantEl = element.querySelector('.cart-item-quantity');
+                let quant = +quantEl.innerHTML;
+                quant++;
+                const priceEl = element.querySelector('.cart-item-price');
+                let price = +priceEl.innerHTML;
+                const summEl = element.querySelector('.cart-item-summ');
+                let summ = price*quant;
+                summEl.innerText = summ;
+                quantEl.innerText = quant;
+
+                if (quant > 0) {
+                    element.style.display = ('block');
+                }
+            }
+        });
+        this.renderRezult();
+    }
+
+    renderRezult() {
+        const rezultEl = document.querySelector('.cart-rezult');
+        const cart = document.querySelector('.cart');
+        const allSumm = [...cart.querySelectorAll('.cart-item-summ')];
+        let rezult = 0;
+        allSumm.forEach(el => {
+            rezult += +el.innerHTML;
+        });
+        rezultEl.innerText = `Стоимость заказа: ${rezult}`;
+    }
+
 }
