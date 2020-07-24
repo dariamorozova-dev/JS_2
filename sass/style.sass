@@ -1,0 +1,155 @@
+$brown: #433512
+$darkBrown: #7c4a24
+$semiBrown: #a07945
+$lightBrown: #c2a97d
+$transparentBrown: #d1ccc4
+$transparentGrey: #d5dadd
+$body: #D0B48F
+
+body
+    margin: 0 auto
+    width: 1000px
+    font-family: 'Play', sans-serif
+
+header
+    padding: 15px 25px
+    box-sizing: border-box
+    width: 100%
+    min-height: 70px
+    background-color: $lightBrown
+    text-align: right
+    
+.btn-cart,
+.btn-cart-block
+    width: 120px
+    height: 35px
+    font-size: 1.2em
+    border: none
+    outline: none
+    background-color: $semiBrown
+    color: $brown
+
+    &:hover
+        background-color: $brown
+        color: $transparentBrown
+        transform: scale(1.1)
+
+    &:active
+        background-color: $darkBrown
+        color: $transparentGrey
+
+.btn-cart-block
+    margin: 5px
+    &-addItem,
+    &-delItem
+        width: 60px
+
+.cart-wrp
+    padding: 50px
+    box-sizing: border-box
+    width: 100%
+    height: 100vh
+    background-color: rgba(67,53,18, .6)
+    position: absolute
+    left: 0
+    top: 0
+    visibility: hidden
+
+.cart-block
+    margin: 0 auto
+    padding: 10px
+    box-sizing: border-box
+    width: 800px
+    min-height: 200px
+    background-color: $lightBrown
+    text-align: left
+    display: flex
+    flex-direction: column
+    justify-content: space-evenly
+
+.cart-btnsAll
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+.cart-item
+    font-size: 1em
+    color: #433512
+    &-name
+        display: inline-block
+        width: 37%
+        font-weight: 600
+    &-price
+        display: inline-block
+        width: 15%
+        text-align: center
+    &-quantity
+        display: inline-block
+        width: 15%
+        text-align: center
+    &-summ
+        display: inline-block
+        width: 15%
+        text-align: center
+    
+.products
+    padding: 25px
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-gap: 15px 15px
+    background-color: $body
+
+.product-item
+    padding: 10px
+    box-sizing: border-box
+    width: 100%
+    height: 100%
+    background-color: $semiBrown
+
+    &:hover
+        background-color: $lightBrown
+        
+    &:hover > .buy-btn
+        background-color: $transparentBrown
+
+    &:hover > .buy-btn:hover
+        transform: scale(1.1)
+        background-color: $semiBrown
+        color: $transparentGrey
+
+    &:hover > .buy-btn:active
+        background-color: $lightBrown
+        color: $semiBrown
+
+    &:active
+        background-color: $transparentBrown
+
+    &:active > .product-item__title, 
+    &:active > .product-item__price
+        color: $lightBrown   
+
+    &__title
+        margin: 0 0 10px 0
+        padding: 0
+        font-size: 1.5em
+        color: $brown
+        font-weight: 600
+
+    &__price
+        margin: 10px 0
+        padding: 0
+        font-size: 1em
+        color: $brown
+
+    &__img
+        width: 100%
+
+.buy-btn
+    width: 100px
+    height: 30px
+    font-size: 1em
+    font-weight: 600
+    border: none
+    outline: none
+    background-color: $lightBrown
+    color: $brown
