@@ -17,7 +17,31 @@ header
     width: 100%
     min-height: 70px
     background-color: $lightBrown
-    text-align: right
+    display: flex
+    justify-content: flex-end
+    align-items: center
+
+.form
+    
+    &-input
+        margin: 0
+        padding: 10px
+        box-sizing: border-box
+        border: none
+        outline: none
+        background: linear-gradient(180deg, rgba(255,255,255,0) 91%, rgba(160,121,69,1) 100%)
+
+    &-submit
+        margin: 0
+        padding: 0
+        font-size: 20px
+        border: none
+        outline: none
+        color: $semiBrown
+        background-color: $lightBrown
+
+.invisible
+    display: none
     
 .btn-cart,
 .btn-cart-block
@@ -37,6 +61,9 @@ header
     &:active
         background-color: $darkBrown
         color: $transparentGrey
+
+.btn-cart
+    margin: 0 0 0 20px
 
 .btn-cart-block
     margin: 5px

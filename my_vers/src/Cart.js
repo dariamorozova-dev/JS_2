@@ -52,6 +52,7 @@ class Cart {
         cartBtnDelItem.forEach(element => {
             element.addEventListener('click', this.deleteItem.bind(this));
         });
+        
     }
 
     showCartBlock() {
