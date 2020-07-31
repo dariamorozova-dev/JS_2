@@ -9,6 +9,7 @@ const app = new Vue({
         imgCatalog: 'https://placehold.it/200x150',
         searchLine: '',
         filtered: [],
+        isCartVisible: false,
     },
 
     methods: {
@@ -38,7 +39,7 @@ const app = new Vue({
                     block.classList.remove('invisible');
                 }
             })
-        }
+        },
     },
 
     mounted() {
