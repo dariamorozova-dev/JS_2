@@ -27,8 +27,6 @@ const app = new Vue({
         },
 
         filterGoods() {
-            console.log(this.searchLine);
-            console.log(this.products);
             const regexp = new RegExp(this.searchLine, 'i');
             this.filtered = this.products.filter(product => regexp.test(product.product_name));
             this.products.forEach(el => {
@@ -48,12 +46,23 @@ const app = new Vue({
                 for (let el of data) {
                     this.products.push(el);
                 }
+            })
+            .catch(error => {
+                console.log(error);
+                const block = document.querySelector('.products');
+                block.insertAdjacentHTML('afterbegin', `<h2>Упс! Нет данных :(</h2>`);
             });
+
         this.getJson(`getProducts.json`)
             .then(data => {
                 for (let el of data) {
                     this.products.push(el);
                 }
+            })
+            .catch(error => {
+                console.log(error);
+                const block = document.querySelector('.products');
+                block.insertAdjacentHTML('afterbegin', `<h2>Упс! Нет данных :(</h2>`);
             })
     }
 })
