@@ -10,6 +10,7 @@ const app = new Vue({
         searchLine: '',
         filtered: [],
         isCartVisible: false,
+        itemsInCart: []
     },
 
     methods: {
@@ -23,7 +24,25 @@ const app = new Vue({
         },
 
         addProduct(product) {
-            console.log(product.id_product);
+            if (!this.isProductInCart(product)) {
+                product.quantity = 1;
+                this.itemsInCart.push(product);
+            } else {
+                // const item = this.itemsInCart.find(product.product_name);
+                // console.log(item);
+                this.itemsInCart.forEach(item => {
+                    if (item.product_name == product.product_name) {
+                        item.quantity++;
+                    }
+                })
+            }
+            
+            
+            console.log(this.itemsInCart);
+        },
+
+        isProductInCart(product) {
+            return this.itemsInCart.includes(product);
         },
 
         filterGoods() {

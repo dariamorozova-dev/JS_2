@@ -115,6 +115,7 @@ img {
 .cart-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .cart-item:not(:last-child){
     margin-bottom: 20px;
@@ -137,7 +138,7 @@ img {
     max-width: 150px;
 }
 .product-quantity {
-    margin-top: 15px;
+    /* margin-top: 15px; */
     font-size: 0.75em;
 }
 .right-block{
