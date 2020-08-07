@@ -209,6 +209,11 @@ img {
   min-height: 133px;
 }
 
+.prod-img-small {
+  display: block;
+  max-width: 66px;
+}
+
 .product-bio {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -226,10 +231,14 @@ img {
 
 .product-desc {
   max-width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-quantity {
-  margin-top: 15px;
   font-size: 0.75em;
 }
 

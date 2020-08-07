@@ -62,11 +62,16 @@ Vue.component('cart', {
                     }
                 })
         },
+
+        getImgUrl(product){
+            let a = ('img/' + product.product_name + '.jpg');
+            return a;
+        }
     },
     template: `<div>
 <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
         <div class="cart-block" v-show="showCart">
-            <cart-item v-for="item of cartItems" :key="item.id_product" :img="imgCart" :cart-item="item" @remove="remove">
+            <cart-item v-for="item of cartItems" :key="item.id_product" :cart-item="item" @remove="remove">
             </cart-item>
         </div>
         </div>
@@ -74,11 +79,11 @@ Vue.component('cart', {
 });
 
 Vue.component('cart-item', {
-    props: ['img', 'cartItem'],
+    props: ['cartItem'],
     template: `
     <div class="cart-item">
                     <div class="product-bio">
-                        <img :src="img" alt="Some img">
+                        <img :src="$parent.getImgUrl(cartItem)" alt="Some img" class="prod-img-small">
                         <div class="product-desc">
                             <div class="product-title">{{ cartItem.product_name }}</div>
                             <div class="product-quantity">Quantity: {{ cartItem.quantity }}</div>
