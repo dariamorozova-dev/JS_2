@@ -1,35 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Интернет-магазин</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<div id="app">
-    <header>
-        <div class="logo"><i class="fas fa-laptop"></i></div>
-        <div class="header-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla blandit rutrum porttitor. Phasellus eget mi euismod nulla porttitor pellentesque eget cursus mi. Maecenas ut augue pulvinar, maximus lectus a, egestas erat. Integer ullamcorper sed lorem et aliquam. Nam at nunc nec massa egestas suscipit sed eu eros. Nam ac neque eget nulla vulputate dapibus et non orci. Sed et aliquet leo, ac cursus ligula. Etiam vitae lacus tortor. Morbi dictum ornare magna, in hendrerit mauris accumsan id. Praesent lacinia tincidunt pellentesque. Vivamus vitae urna sagittis, ultrices ex ac, facilisis dolor. Aliquam et ipsum condimentum, convallis urna eget, commodo sapien. Quisque sed quam eget augue posuere sollicitudin. Nunc sit amet lectus eu eros scelerisque vehicula.</div>
-        <div class="cart">
-            <p class="cart-text">Vivamus ante odio, tempor eget nunc in, posuere finibus tortor. Vivamus facilisis mollis malesuada. Praesent tempus, sapien sit amet sodales imperdiet.</p>
 
-            <filter-el></filter-el>
-            <cart ref="cart"></cart>
+<body>
+    <div id="app">
+        <header>
+            <div class="logo"><i class="fas fa-laptop"></i></div>
+            <div class="header-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla blandit rutrum
+                porttitor. Phasellus eget mi euismod nulla porttitor pellentesque eget cursus mi. Maecenas ut augue
+                pulvinar, maximus lectus a, egestas erat. Integer ullamcorper sed lorem et aliquam. Nam at nunc nec
+                massa egestas suscipit sed eu eros. Nam ac neque eget nulla vulputate dapibus et non orci. Sed et
+                aliquet leo, ac cursus ligula. Etiam vitae lacus tortor. Morbi dictum ornare magna, in hendrerit mauris
+                accumsan id. Praesent lacinia tincidunt pellentesque. Vivamus vitae urna sagittis, ultrices ex ac,
+                facilisis dolor. Aliquam et ipsum condimentum, convallis urna eget, commodo sapien. Quisque sed quam
+                eget augue posuere sollicitudin. Nunc sit amet lectus eu eros scelerisque vehicula.</div>
+            <div class="cart">
+                <p class="cart-text">Vivamus ante odio, tempor eget nunc in, posuere finibus tortor. Vivamus facilisis
+                    mollis malesuada. Praesent tempus, sapien sit amet sodales imperdiet.</p>
+
+                <filter-el></filter-el>
+                <cart ref="cart"></cart>
+            </div>
+        </header>
+        <main>
+            <error ref="error"></error>
+            <products ref="products"></products>
+        </main>
+    </div>
+    <footer>
+        <div class="footer-info">
+            <ul class="footer-info-list">
+                <li class="footer-info-item">Sed semper ante odio, eget vehicula dui elementum non. Cras id laoreet nibh. Aliquam at tortor lacus.</li>
+                <li class="footer-info-item">Duis sed metus porta, rutrum dolor sed, posuere lorem.</li>
+                <li class="footer-info-item">Praesent gravida velit a ipsum pulvinar, nec efficitur lacus placerat. Curabitur ultricies dictum semper.</li>
+                <li class="footer-info-item">Vivamus tincidunt vehicula dolor vel semper.</li>
+                <li class="footer-info-item">Donec ac nisl ut metus dictum facilisis. Suspendisse gravida odio sed vehicula consequat.</li>
+                <li class="footer-info-item">Sed euismod mattis elit nec semper. Integer varius tortor non quam sagittis, non iaculis ipsum sodales. Curabitur quis orci quis neque ultrices aliquam id non enim.</li>
+            </ul>
         </div>
-    </header>
-    <main>
-        <error ref="error"></error>
-        <products ref="products"></products>
-    </main>
-</div>
-    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+        <div class="footer-map">
+            <img src="img/Map.jpg" alt="map">
+        </div>
+        <div class="footer-social"></div>
+    </footer>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="js/ProductComponent.js"></script>
-<script src="js/CartComponent.js"></script>
-<script src="js/FilterComp.js"></script>
-<script src="js/ErrorComp.js"></script>
+    <script src="js/ProductComponent.js"></script>
+    <script src="js/CartComponent.js"></script>
+    <script src="js/FilterComp.js"></script>
+    <script src="js/ErrorComp.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

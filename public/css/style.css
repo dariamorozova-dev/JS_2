@@ -32,7 +32,9 @@ button:focus {
   font-weight: bold;
   font-size: 75px;
   color: #ffc400;
-  orde: 1;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 
 .header-text {
@@ -234,8 +236,8 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display-flex-direction: column;
+  display-justify-content: space-between;
 }
 
 .product-quantity {
@@ -314,5 +316,64 @@ img {
   border: none;
   color: white;
   font-weight: bold;
+}
+
+footer {
+  margin: 0 auto;
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 1280px;
+  min-height: 200px;
+  background-image: url(../img/header-bg-2.jpg);
+  background-position: 0px 520px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer-info {
+  color: #FFFFE0;
+  max-width: 50%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.33) 74%, rgba(255, 255, 255, 0) 100%);
+  color: #FFFFE0;
+}
+
+.footer-info-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer-info-item {
+  max-width: 50%;
+  min-height: 65px;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 13px;
+}
+
+.footer-info-item:nth-child(2n) {
+  text-align: right;
+}
+
+.footer-info-item::first-letter {
+  font-size: 15px;
+  color: #ffc400;
 }
 /*# sourceMappingURL=style.css.map */

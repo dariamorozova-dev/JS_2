@@ -30,7 +30,7 @@ button:focus
 	font-weight: bold
 	font-size: 75px
 	color: $gold
-	orde: 1
+	order: 1
 
 .header-text
 	margin: 0 20px
@@ -234,3 +234,49 @@ img
 	border: none
 	color: white
 	font-weight: bold
+
+footer
+	margin: 0 auto
+	padding: 30px
+	box-sizing: border-box
+	width: 1280px
+	min-height: 200px
+	background-image: url(../img/header-bg-2.jpg)
+	background-position: 0px 520px
+	display: flex
+	justify-content: space-between
+	align-items: center
+
+.footer
+	&-info
+		color: $gold-l
+		max-width: 50%
+		background: radial-gradient(circle, rgba(0,0,0,0.33) 74%, rgba(255,255,255,0) 100%)
+		color: $gold-l
+		
+		&-list
+			list-style-type: none
+			padding: 0
+			margin: 0
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+
+		&-item
+			max-width: 50%
+			min-height: 65px
+			padding: 5px
+			box-sizing: border-box
+			font-size: 13px
+
+			&:nth-child(2n),
+				text-align: right
+
+			&::first-letter
+				font-size: 15px
+				color: $gold
+			
+				
+				
+	&-map
+	&-social
