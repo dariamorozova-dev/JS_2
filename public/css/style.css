@@ -236,8 +236,8 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  display-flex-direction: column;
-  display-justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-quantity {
