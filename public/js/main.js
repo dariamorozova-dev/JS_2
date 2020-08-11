@@ -1,4 +1,5 @@
-const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
+// const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
+
 
 const app = new Vue({
     el: '#app',
@@ -51,6 +52,23 @@ const app = new Vue({
     }
 
 });
+
+// export default {
+//     main: app,
+// };
+
+
+
+// import CartComponent from './CartComponent.js';
+// const CartItemComp = CartComponent.CartItemComp;
+// const CartComp = CartComponent.CartComp;
+// import ErrorComp from './ErrorComp';
+// const Error = ErrorComp.Error;
+// import FilterComp from './FilterComp';
+// const Filter = FilterComp.Filter;
+// import ProductsComp from './ProductComponent';
+// const Products = ProductsComp.Products;
+// const ProductItem = ProductsComp.ProductItem;
 
 
 // class List {
